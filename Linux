@@ -1,0 +1,28 @@
+## TEST Server Hardening för Linux TEST
+
+### Grundläggande skyddsåtgärder
+
+- **Uppdatera operativsystem och programvara**
+  ```bash
+  sudo apt update && sudo apt upgrade
+  ```
+- **Använd starka lösenord och tvåfaktorsautentisering (2FA)**
+- **Begränsa administrativ åtkomst** (använd endast root när nödvändigt)
+- **Aktivera brandvägg**
+  ```bash
+  sudo ufw enable
+  sudo ufw allow 22/tcp  # Tillåt SSH
+  ```
+- **Övervaka loggar och trafik**
+
+### Avancerade skyddsåtgärder
+
+- **Avaktivera root-inloggning via SSH**
+  ```bash
+  sudo nano /etc/ssh/sshd_config
+  # Ändra PermitRootLogin till 'no'
+  ```
+- **Säkra systemprocesser med AppArmor eller SELinux**
+- **Använd Intrusion Detection System (IDS) som Fail2Ban**
+- **Intrångsdetektering (IDS) och Intrångsförebyggande (IPS)**
+- **Säkerhetskopiering** – Automatiska backuper för att återställa vid angrepp
