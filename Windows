@@ -1,0 +1,21 @@
+## TEST Server Hardening för Windows TEST
+
+### Grundläggande skyddsåtgärder
+
+- **Uppdatera operativsystem och programvara**
+  ```powershell
+  Install-Module PSWindowsUpdate
+  Get-WindowsUpdate -Install
+  ```
+- **Använd starka lösenord och tvåfaktorsautentisering (2FA)**
+- **Begränsa administrativ åtkomst** (använd endast administratör när nödvändigt)
+- **Aktivera Windows-brandväggen och Defender**
+- **Övervaka loggar och trafik**
+
+### Avancerade skyddsåtgärder
+
+- **Konfigurera Windows-brandväggen för att blockera obehörig trafik**
+- **Använd Group Policy för att begränsa åtkomst och policyer**
+- **Installera verktyg som Microsoft Security Baseline**
+- **Logghantering och SIEM** – Övervaka loggar med exempelvis Splunk eller ELK Stack
+- **Säkerhetskopiering** – Automatiska backuper för att återställa vid angrepp
