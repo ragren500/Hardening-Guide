@@ -1,4 +1,16 @@
-## TEST Server Hardening för Windows TEST 
+## Server Hardening för Windows
+
+## Introduktion
+
+Serverhärdning ("Hardening") innebär att säkra en server för att minimera risken för angrepp. Det inkluderar att täppa till sårbarheter, begränsa åtkomst och implementera säkerhetsprinciper.
+
+## Vanliga hotbilder
+
+- **Brute Force-attacker** – Angripare försöker gissa lösenord genom att testa många kombinationer.
+- **OS-sårbarheter** – Gammal programvara innehåller säkerhetshål som kan utnyttjas.
+- **DDOS-attacker** – Överbelastning av servern genom massiva mängder trafik.
+- **Malware och Ransomware** – Skadlig kod som infekterar servern.
+- **Obehörig åtkomst** – Svaga behörighetsinställningar kan ge obehöriga åtkomst.
 
 ### Grundläggande skyddsåtgärder
 
