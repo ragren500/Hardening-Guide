@@ -1,4 +1,4 @@
-## Server Hardening för Windows
+# Server Hardening för Windows
 
 ## Introduktion
 
@@ -12,7 +12,7 @@ Serverhärdning ("Hardening") innebär att säkra en server för att minimera ri
 - **Malware och Ransomware** – Skadlig kod som infekterar servern.
 - **Obehörig åtkomst** – Svaga behörighetsinställningar kan ge obehöriga åtkomst.
 
-### Grundläggande skyddsåtgärder
+## Grundläggande skyddsåtgärder
 
 - **Uppdatera operativsystem och programvara**
   ```powershell
@@ -24,7 +24,7 @@ Serverhärdning ("Hardening") innebär att säkra en server för att minimera ri
 - **Aktivera Windows-brandväggen och Defender**
 - **Övervaka loggar och trafik**
 
-### Avancerade skyddsåtgärder
+## Avancerade skyddsåtgärder
 
 - **Konfigurera Windows-brandväggen för att blockera obehörig trafik**
 - **Använd Group Policy för att begränsa åtkomst och policyer**
