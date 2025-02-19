@@ -3,3 +3,22 @@
 ## Introduktion
 
 Serverhärdning ("Hardening") innebär att säkra en server för att minimera risken för angrepp. Det inkluderar att täppa till sårbarheter, begränsa åtkomst och implementera säkerhetsprinciper.
+
+## MacOS Hardening Guide
+
+Denna sektion innehåller säkerhetsåtgärder för att härda macOS och skydda det mot olika hot.
+
+### 1. Uppdatera macOS regelbundet
+Se till att alltid ha den senaste versionen av macOS och säkerhetsuppdateringar installerade.
+```bash
+sudo softwareupdate --install --all
+```
+
+### 2. Aktivera brandvägg
+Aktivera macOS inbyggda brandvägg för att blockera obehörig nätverkstrafik.
+```bash
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+```
+
+### 3. Inaktivera automatiska inloggningar
+Gå till **Systeminställningar → Användare & grupper → Inloggningsalternativ** och stäng av **Automatisk inloggning**.
