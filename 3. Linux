@@ -12,7 +12,7 @@ Serverhärdning ("Hardening") innebär att säkra en server för att minimera ri
 - **Malware och Ransomware** – Skadlig kod som infekterar servern.
 - **Obehörig åtkomst** – Svaga behörighetsinställningar kan ge obehöriga åtkomst.
 
-### Grundläggande skyddsåtgärder
+## Grundläggande skyddsåtgärder
 
 - **Uppdatera operativsystem och programvara**
   ```bash
@@ -27,7 +27,7 @@ Serverhärdning ("Hardening") innebär att säkra en server för att minimera ri
   ```
 - **Övervaka loggar och trafik**
 
-### Avancerade skyddsåtgärder
+## Avancerade skyddsåtgärder
 
 - **Avaktivera root-inloggning via SSH**
   ```bash
