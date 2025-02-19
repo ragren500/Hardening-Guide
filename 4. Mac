@@ -4,6 +4,7 @@
 
 Serverhärdning ("Hardening") innebär att säkra en server för att minimera risken för angrepp. Det inkluderar att täppa till sårbarheter, begränsa åtkomst och implementera säkerhetsprinciper.
 
+
 ## MacOS Hardening Guide
 
 Denna sektion innehåller säkerhetsåtgärder för att härda macOS och skydda det mot olika hot.
