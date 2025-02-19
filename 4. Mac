@@ -8,17 +8,57 @@ Serverhärdning ("Hardening") innebär att säkra en server för att minimera ri
 
 Denna sektion innehåller säkerhetsåtgärder för att härda macOS och skydda det mot olika hot.
 
-### 1. Uppdatera macOS regelbundet
+## 1. Uppdatera macOS regelbundet
 Se till att alltid ha den senaste versionen av macOS och säkerhetsuppdateringar installerade.
 ```bash
 sudo softwareupdate --install --all
 ```
 
-### 2. Aktivera brandvägg
+## 2. Aktivera brandvägg
 Aktivera macOS inbyggda brandvägg för att blockera obehörig nätverkstrafik.
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 ```
 
-### 3. Inaktivera automatiska inloggningar
+## 3. Inaktivera automatiska inloggningar
 Gå till **Systeminställningar → Användare & grupper → Inloggningsalternativ** och stäng av **Automatisk inloggning**.
+
+## 4. Aktivera FileVault för disk-kryptering
+FileVault skyddar dina data genom att kryptera hela hårddisken.
+```bash
+sudo fdesetup enable
+```
+
+## 5. Begränsa tjänster och delning
+Stäng av onödiga tjänster via **Systeminställningar → Delning** och inaktivera allt du inte behöver.
+
+## 6. Säkerställ att Gatekeeper är aktiverad
+Gatekeeper skyddar mot osignerade appar och potentiellt skadlig programvara.
+```bash
+sudo spctl --master-enable
+```
+
+## 7. Aktivera XProtect och MRT
+macOS har inbyggda skydd mot malware. Se till att de är aktiva.
+```bash
+sudo softwareupdate --background-critical
+```
+
+## 8. Använd en lösenordshanterare
+Se till att använda en stark och unik lösenordshanterare, t.ex. Apple Keychain eller en tredjepartsapp.
+
+## 9. Begränsa sudo-användning
+Sätt en timeout för sudo-kommandon för att minska risken vid kompromettering.
+```bash
+echo 'Defaults timestamp_timeout=5' | sudo tee -a /etc/sudoers
+```
+
+## 10. Aktivera systemintegritetsskydd (SIP)
+SIP förhindrar obehörig modifiering av systemfiler.
+```bash
+csrutil status
+```
+Om det är inaktiverat, starta i återställningsläge och aktivera det:
+```bash
+csrutil enable
+```
