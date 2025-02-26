@@ -93,3 +93,39 @@ defaults write com.apple.screensaver idleTime -int 300
 
 ## 16. Använd ett standardkonto istället för administratörskonto
 För dagligt arbete bör du använda ett **icke-administrativt konto** för att minska riskerna vid intrång.
+
+## 17. Inaktivera iCloud Drive om det inte behövs
+Om du inte behöver synkronisera filer till iCloud, inaktivera det för att minska risken för dataexponering.
+```bash
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+```
+
+## 18. Begränsa mikrofon- och kameråtkomst
+Kontrollera vilka appar som har tillgång till mikrofon och kamera under **Systeminställningar → Integritet & säkerhet** och ta bort onödiga behörigheter.
+
+## 19. Inaktivera Wi-Fi när det inte används
+Om du inte använder Wi-Fi kan du minska attackytan genom att stänga av det.
+```bash
+networksetup -setairportpower en0 off
+```
+
+## 20. Kontrollera och inaktivera osäkra Kernel Extensions
+Apple har successivt begränsat Kernel Extensions (KEXTs), men det är bra att kontrollera och ta bort gamla eller osäkra.
+```bash
+kmutil inspect
+```
+
+## 21. Använd en DNS-tjänst med skydd
+Förbättra säkerheten genom att använda en DNS-tjänst med filtrering, t.ex. Cloudflare (1.1.1.1) eller Quad9 (9.9.9.9).
+```bash
+networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
+```
+
+## 22. Skanna och ta bort skadlig programvara
+Använd XProtect och MRT manuellt eller installera en säkerhetslösning som **Malwarebytes** för att söka efter hot.
+
+## 23. Inaktivera Handoff och Universal Clipboard om det inte används
+Om du inte behöver kopiera och klistra mellan Apple-enheter kan du inaktivera detta för att minska risken för dataexponering.
+```bash
+defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool false
+```
