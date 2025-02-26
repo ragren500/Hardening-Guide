@@ -6,7 +6,7 @@ Denna guide innehåller instruktioner för att säkra upp olika operativsystem o
 - **Android**
 - **iOS**
 - **Linux**
-- **Mac**
+- **macOS**
 - **Windows**
 
 Varje sektion kommer att innehålla specifika säkerhetsåtgärder och bästa praxis för att stärka säkerheten på respektive plattform.
