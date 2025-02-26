@@ -63,3 +63,33 @@ Om det är inaktiverat, starta i återställningsläge och aktivera det:
 ```bash
 csrutil enable
 ```
+
+## 11. Stäng av fjärrinloggning (SSH om det inte behövs)
+Om du inte använder SSH, inaktivera det för att minska attackytan.
+```bash
+sudo systemsetup -setremotelogin off
+```
+
+## 12. Begränsa vilka appar som kan köra skript och automation
+Gå till **Systeminställningar → Integritet & säkerhet → Automation** och begränsa vilka appar som får styra andra applikationer.
+
+## 13. Inaktivera Bluetooth när det inte används
+Om du inte använder Bluetooth, inaktivera det för att minska attackytan.
+```bash
+sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
+```
+
+## 14. Övervaka systemloggar och säkerhetshändelser
+Använd `log show` eller `console.app` för att granska misstänkt aktivitet.
+```bash
+log show --predicate 'eventMessage contains "failed"' --last 24h
+```
+
+## 15. Ställ in en striktare skärmlåsningspolicy
+Se till att datorn låser sig snabbt vid inaktivitet.
+```bash
+defaults write com.apple.screensaver idleTime -int 300
+```
+
+## 16. Använd ett standardkonto istället för administratörskonto
+För dagligt arbete bör du använda ett **icke-administrativt konto** för att minska riskerna vid intrång.
