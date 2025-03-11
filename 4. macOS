@@ -1,4 +1,4 @@
-# Server Hardening för macOS
+# Server Hardening för macOS *Denna guide är under utveckling och uppdateras löpande!*
 
 ## Introduktion
 
@@ -128,4 +128,25 @@ Använd XProtect och MRT manuellt eller installera en säkerhetslösning som **M
 Om du inte behöver kopiera och klistra mellan Apple-enheter kan du inaktivera detta för att minska risken för dataexponering.
 ```bash
 defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool false
+```
+
+## 24. Inaktivera AirDrop om det inte behövs
+Om du inte använder AirDrop kan du minska risken för obehöriga filöverföringar genom att inaktivera det.
+```bash
+defaults write com.apple.airdrop disable -bool true
+```
+
+## 25. Inaktivera Gästkontot
+Förhindra att obehöriga får åtkomst genom att inaktivera Gästkontot.
+```bash
+sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
+```
+
+## 26. Använd en extern säkerhetslösning som Little Snitch
+Little Snitch ger en extra nivå av nätverkssäkerhet genom att visa och blockera oväntad trafik.
+
+## 27. Blockera onödiga portar med en anpassad brandväggsregel
+Utöver att aktivera brandväggen kan du blockera vissa portar manuellt.
+```bash
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on
 ```
