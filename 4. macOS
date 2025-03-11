@@ -4,149 +4,166 @@
 
 Serverhärdning ("Hardening") innebär att säkra en server för att minimera risken för angrepp. Det inkluderar att täppa till sårbarheter, begränsa åtkomst och implementera säkerhetsprinciper.
 
-
 ## MacOS Hardening Guide
 
 Denna sektion innehåller säkerhetsåtgärder för att härda macOS och skydda det mot olika hot.
 
-## 1. Uppdatera macOS regelbundet
-Se till att alltid ha den senaste versionen av macOS och säkerhetsuppdateringar installerade.
+## 1. Installera en ren kopia av macOS
+*Varför: För att starta med en säker konfiguration utan tidigare fel eller skadlig kod. 
+
+## 2. Uppdatera macOS regelbundet
+*Varför: För att säkerställa att systemet alltid är skyddat mot de senaste säkerhetshoten.
 ```bash
 sudo softwareupdate --install --all
 ```
 
-## 2. Aktivera brandvägg
-Aktivera macOS inbyggda brandvägg för att blockera obehörig nätverkstrafik.
+## 3. Aktivera automatiska uppdateringar
+*Varför: För att undvika manuella uppdateringar och hålla systemet uppdaterat automatiskt.
+
+## 4. Aktivera brandvägg
+*Varför: För att blockera obehörig nätverkstrafik och minska attackytan.
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 ```
 
-## 3. Inaktivera automatiska inloggningar
-Gå till **Systeminställningar → Användare & grupper → Inloggningsalternativ** och stäng av **Automatisk inloggning**.
+## 5. Inaktivera automatiska inloggningar
+*Varför: För att hindra obehöriga från att logga in utan lösenord.
 
-## 4. Aktivera FileVault för disk-kryptering
-FileVault skyddar dina data genom att kryptera hela hårddisken.
+## 6. Aktivera FileVault för disk-kryptering
+*Varför: För att skydda känslig data från att läsas vid fysisk åtkomst till datorn.
 ```bash
 sudo fdesetup enable
 ```
 
-## 5. Begränsa tjänster och delning
-Stäng av onödiga tjänster via **Systeminställningar → Delning** och inaktivera allt du inte behöver.
+## 7. Begränsa tjänster och delning
+*Varför: För att minimera antalet öppna portar och minska risken för fjärrangrepp.
 
-## 6. Säkerställ att Gatekeeper är aktiverad
-Gatekeeper skyddar mot osignerade appar och potentiellt skadlig programvara.
+## 8. Förhindra osignerad programvara
+*Varför: För att minska risken för skadlig kod genom att endast tillåta verifierade appar.
+
+## 9. Säkerställ att Gatekeeper är aktiverad
+*Varför: För att blockera och varna för okända eller osignerade program.
 ```bash
 sudo spctl --master-enable
 ```
 
-## 7. Aktivera XProtect och MRT
-macOS har inbyggda skydd mot malware. Se till att de är aktiva.
+## 10. Aktivera XProtect och MRT
+*Varför: För att dra nytta av Apples inbyggda skydd mot skadlig kod.
 ```bash
 sudo softwareupdate --background-critical
 ```
 
-## 8. Använd en lösenordshanterare
-Se till att använda en stark och unik lösenordshanterare, t.ex. Apple Keychain eller en tredjepartsapp.
+## 11. Använd en lösenordshanterare
+*Varför: För att generera och lagra starka lösenord på ett säkert sätt.
 
-## 9. Begränsa sudo-användning
-Sätt en timeout för sudo-kommandon för att minska risken vid kompromettering.
+## 12. Begränsa sudo-användning
+*Varför: För att förhindra att obehöriga kan eskalera privilegier och utnyttja sudo under en längre tid.
 ```bash
 echo 'Defaults timestamp_timeout=5' | sudo tee -a /etc/sudoers
 ```
 
-## 10. Aktivera systemintegritetsskydd (SIP)
-SIP förhindrar obehörig modifiering av systemfiler.
+## 13. Aktivera systemintegritetsskydd (SIP)
+*Varför: För att skydda viktiga systemfiler från ändringar.
 ```bash
 csrutil status
-```
-Om det är inaktiverat, starta i återställningsläge och aktivera det:
-```bash
 csrutil enable
 ```
 
-## 11. Stäng av fjärrinloggning (SSH om det inte behövs)
-Om du inte använder SSH, inaktivera det för att minska attackytan.
+## 14. Stäng av fjärrinloggning (SSH om det inte behövs)
+*Varför: För att minska attackytan och förhindra obehörig fjärråtkomst.
 ```bash
 sudo systemsetup -setremotelogin off
 ```
 
-## 12. Begränsa vilka appar som kan köra skript och automation
-Gå till **Systeminställningar → Integritet & säkerhet → Automation** och begränsa vilka appar som får styra andra applikationer.
+## 15. Begränsa vilka appar som kan köra skript och automation
+*Varför: För att minimera risken att skadlig programvara kan exekvera skript.
 
-## 13. Inaktivera Bluetooth när det inte används
-Om du inte använder Bluetooth, inaktivera det för att minska attackytan.
+## 16. Inaktivera Bluetooth när det inte används
+*Varför: För att minska attackytan för trådlösa attacker.
 ```bash
 sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
 ```
 
-## 14. Övervaka systemloggar och säkerhetshändelser
-Använd `log show` eller `console.app` för att granska misstänkt aktivitet.
+## 17. Övervaka systemloggar och säkerhetshändelser
+*Varför: För att identifiera misstänkt aktivitet och potentiella angrepp.
 ```bash
 log show --predicate 'eventMessage contains "failed"' --last 24h
 ```
 
-## 15. Ställ in en striktare skärmlåsningspolicy
-Se till att datorn låser sig snabbt vid inaktivitet.
+## 18. Förhindra Safari från att öppna nedladdningar automatiskt
+*Varför: För att minimera risken att skadlig kod körs vid nedladdning.
+
+## 19. Visa filändelser i Finder
+*Varför: För att tydligt identifiera filformat och undvika dolda skadliga filer.
+
+## 20. Ställ in en striktare skärmlåsningspolicy
+*Varför: För att skydda systemet vid inaktivitet.
 ```bash
 defaults write com.apple.screensaver idleTime -int 300
 ```
 
-## 16. Använd ett standardkonto istället för administratörskonto
-För dagligt arbete bör du använda ett **icke-administrativt konto** för att minska riskerna vid intrång.
+## 21. Använd ett standardkonto istället för administratörskonto
+*Varför: För att minska risken att skadlig kod körs med admin-behörighet.
 
-## 17. Inaktivera iCloud Drive om det inte behövs
-Om du inte behöver synkronisera filer till iCloud, inaktivera det för att minska risken för dataexponering.
+## 22. Inaktivera iCloud Drive om det inte behövs
+*Varför: För att minska risken att filer exponeras via molnsynkronisering.
 ```bash
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 ```
 
-## 18. Begränsa mikrofon- och kameråtkomst
-Kontrollera vilka appar som har tillgång till mikrofon och kamera under **Systeminställningar → Integritet & säkerhet** och ta bort onödiga behörigheter.
+## 23. Begränsa mikrofon- och kameråtkomst
+*Varför: För att förhindra att appar kan avlyssna och spela in utan tillstånd.
 
-## 19. Inaktivera Wi-Fi när det inte används
-Om du inte använder Wi-Fi kan du minska attackytan genom att stänga av det.
+## 24. Inaktivera Wi-Fi när det inte används
+*Varför: För att minska risken för obehörig nätverksåtkomst.
 ```bash
 networksetup -setairportpower en0 off
 ```
 
-## 20. Kontrollera och inaktivera osäkra Kernel Extensions
-Apple har successivt begränsat Kernel Extensions (KEXTs), men det är bra att kontrollera och ta bort gamla eller osäkra.
+## 25. Kontrollera och inaktivera osäkra Kernel Extensions
+*Varför: För att eliminera äldre sårbara drivrutiner.
 ```bash
 kmutil inspect
 ```
 
-## 21. Använd en DNS-tjänst med skydd
-Förbättra säkerheten genom att använda en DNS-tjänst med filtrering, t.ex. Cloudflare (1.1.1.1) eller Quad9 (9.9.9.9).
+## 26. Använd en DNS-tjänst med skydd
+*Varför: För att skydda mot skadliga webbplatser och phishing-attacker.
 ```bash
 networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
 ```
 
-## 22. Skanna och ta bort skadlig programvara
-Använd XProtect och MRT manuellt eller installera en säkerhetslösning som **Malwarebytes** för att söka efter hot.
+## 27. Skanna och ta bort skadlig programvara
+*Varför: För att identifiera och ta bort eventuell malware.
 
-## 23. Inaktivera Handoff och Universal Clipboard om det inte används
-Om du inte behöver kopiera och klistra mellan Apple-enheter kan du inaktivera detta för att minska risken för dataexponering.
-```bash
-defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool false
-```
+## 28. Granska webbläsartillägg
+*Varför: För att minska risken för att skadliga tillägg får åtkomst till känsliga data.
 
-## 24. Inaktivera AirDrop om det inte behövs
-Om du inte använder AirDrop kan du minska risken för obehöriga filöverföringar genom att inaktivera det.
+## 29. Använd en utgående brandvägg
+*Varför: För att blockera oönskad nätverkstrafik från systemet.
+
+## 30. Blockera skadliga domäner via /etc/hosts
+*Varför: För att minska risken för nätfiske och skadliga domäner.
+
+## 31. Aktivera säker tangentbordsinmatning i Terminal
+*Varför: För att förhindra att andra appar registrerar tangenttryckningar.
+
+## 32. Aktivera binär allowlisting med Google Santa
+*Varför: För att stoppa obehöriga program från att köras.
+
+## 33. Inaktivera AirDrop om det inte behövs
+*Varför: För att förhindra att obehöriga skickar filer till enheten.
 ```bash
 defaults write com.apple.airdrop disable -bool true
 ```
 
-## 25. Inaktivera Gästkontot
-Förhindra att obehöriga får åtkomst genom att inaktivera Gästkontot.
+## 34. Inaktivera Gästkontot
+*Varför: För att förhindra obehöriga från att logga in utan lösenord.
 ```bash
 sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 ```
 
-## 26. Använd en extern säkerhetslösning som Little Snitch
-Little Snitch ger en extra nivå av nätverkssäkerhet genom att visa och blockera oväntad trafik.
-
-## 27. Blockera onödiga portar med en anpassad brandväggsregel
-Utöver att aktivera brandväggen kan du blockera vissa portar manuellt.
+## 35. Blockera onödiga portar med en anpassad brandväggsregel
+*Varför: För att minska attackytan och begränsa obehörig nätverkstrafik.
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on
 ```
