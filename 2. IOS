@@ -10,7 +10,7 @@ Att härda IOS innebär att du stärker säkerheten i operativsystemet och skydd
 
 Denna sektion innehåller säkerhetsåtgärder för att härda IOS och skydda det mot olika hot.
 
-### 1. Installera en ren kopia av IOS
+## 1. Installera en ren kopia av IOS
 
 *Varför: För att säkerställa en säker utgångspunkt utan risk från eventuellt tidigare komprometterade inställningar eller applikationer.
 
@@ -18,14 +18,14 @@ Denna sektion innehåller säkerhetsåtgärder för att härda IOS och skydda de
 - Återställ enheten till fabriksinställningar och installera IOS från officiella källor (Apple).
 - Undvik att återställa säkerhetskopior från okända eller opålitliga källor.
 
-### 2. Uppdatera IOS regelbundet
+## 2. Uppdatera IOS regelbundet
 
 *Varför: För att skydda mot säkerhetsbrister som upptäcks kontinuerligt.
 
 - Aktivera automatiska uppdateringar:
   - `Inställningar → Allmänt → Programuppdatering → Automatiska uppdateringar → Aktivera "Ladda ner och installera IOS-uppdateringar".`
 
-### 3. Använd stark autentisering
+## 3. Använd stark autentisering
 
 *Varför: Förhindrar obehörig åtkomst till din enhet.
 
@@ -34,21 +34,21 @@ Denna sektion innehåller säkerhetsåtgärder för att härda IOS och skydda de
 - Använd ett komplext lösenord:
   - `Inställningar → Face ID & lösenkod → Ange en alfanumerisk lösenkod på minst 8 tecken.`
 
-### 4. Begränsa användning av appbehörigheter
+## 4. Begränsa användning av appbehörigheter
 
 *Varför: Minskar risken att appar missbrukar data eller funktioner.
 
 - Granska och begränsa appars åtkomst:
   - `Inställningar → Integritet och säkerhet → Välj relevant kategori (ex. Plats, Kamera, Mikrofon) och granska behörigheter.`
 
-### 5. Aktivera Hitta min iPhone
+## 5. Aktivera Hitta min iPhone
 
 *Varför: För att skydda enheten mot förlust och stöld.
 
 - `Inställningar → Apple-ID → Hitta → Aktivera "Hitta min iPhone".`
 - Aktivera `"Skicka senaste plats"` för att spåra enheten även vid lågt batteri.
 
-### 6. Begränsa nätverksanslutningar
+## 6. Begränsa nätverksanslutningar
 
 *Varför: Minskar risken för nätverksrelaterade attacker.
 
@@ -57,7 +57,7 @@ Denna sektion innehåller säkerhetsåtgärder för att härda IOS och skydda de
 - Stäng av automatisk anslutning till öppna nätverk:
   - `Inställningar → Wi-Fi → Fråga vid anslutning.`
 
-### 7. Stäng av onödiga tjänster och funktioner
+## 7. Stäng av onödiga tjänster och funktioner
 
 *Varför: Minskar attackytan.
 
@@ -65,7 +65,7 @@ Denna sektion innehåller säkerhetsåtgärder för att härda IOS och skydda de
   - `Inställningar → Allmänt → AirDrop → Endast mottagning av.`
 - Inaktivera Bluetooth om det inte används aktivt.
 
-### 8. Använd säker webbläsning och mailhantering
+## 8. Använd säker webbläsning och mailhantering
 
 *Varför: Skyddar mot nätfiske och skadliga webbsidor.
 
@@ -73,7 +73,7 @@ Denna sektion innehåller säkerhetsåtgärder för att härda IOS och skydda de
   - `Inställningar → Safari → Aktivera "Bedrägerivarning".`
 - Var försiktig med länkar och bilagor från okända avsändare i e-post.
 
-### 9. Säkerhetskopiera data regelbundet
+## 9. Säkerhetskopiera data regelbundet
 
 *Varför: Säkerställer tillgång till data vid en incident.
 
