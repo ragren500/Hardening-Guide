@@ -38,3 +38,15 @@ Serverhärdning ("Hardening") innebär att säkra en server för att minimera ri
 - **Använd Intrusion Detection System (IDS) som Fail2Ban**
 - **Intrångsdetektering (IDS) och Intrångsförebyggande (IPS)**
 - **Säkerhetskopiering** – Automatiska backuper för att återställa vid angrepp
+
+## Logghantering och övervakning
+
+- **Använd auditd för spårning av systemändringar**
+  ```bash
+  sudo apt install auditd
+  sudo systemctl enable auditd --now
+  ```
+- **Konfigurera automatisk loggrotering**
+  ```bash
+  sudo nano /etc/logrotate.conf
+  ```
