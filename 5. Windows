@@ -2,32 +2,67 @@
 
 ## Introduktion
 
+## 1. Uppdatera Windows och programvara
+
+- **Automatiska uppdateringar**: Se till att automatiska uppdateringar är aktiverade för Windows så att säkerhetsuppdateringar installeras automatiskt.
+- **Manuella uppdateringar**: Kontrollera regelbundet manuellt om det finns några tillgängliga uppdateringar i Windows Update.
+
+## 2. Installera och använd antivirusprogram
+
+- **Windows Defender**: Windows 10 och senare versioner kommer med Windows Defender, som är ett inbyggt antivirusprogram. Håll det aktiverat.
+- **Tredjeparts antivirusprogram**: Om du föredrar ett tredjeparts antivirusprogram, se till att det är uppdaterat och konfigurerat för att ge skydd i realtid.
+
+## 3. Använd ett starkt lösenord och aktivera tvåfaktorsautentisering
+
+- **Starka lösenord**: Se till att du använder ett komplext lösenord för dina användarkonton, gärna med en blandning av stora och små bokstäver, siffror och specialtecken.
+- **Tvåfaktorsautentisering**: Aktivera tvåfaktorsautentisering (2FA) där det är möjligt för extra skydd, särskilt för Microsoft-kontot och andra tjänster som stöder det.
+
+## 4. Aktivera Brandvägg
+
+- **Windows-brandvägg**: Se till att Windows-brandväggen är aktiverad. Den kan blockera oönskad trafik och förhindra att skadlig programvara kommunicerar med externa servrar.
+
+## 5. Säkerhetskopiera dina data
+
+- **Regelbundna säkerhetskopior**: Använd Windows inbyggda verktyg för att skapa säkerhetskopior, till exempel `Historik för filer` eller `Windows Backup`. Detta kan hjälpa dig att återställa viktiga data om systemet blir infekterat eller skadas.
+- **Extern lagring eller molnlagring**: Säkerhetskopiera data både lokalt (t.ex. extern hårddisk) och till molnlagringstjänster.
+
+## 6. Hantera användarbehörigheter
+
+- **Begränsade konton**: Använd standardanvändarkonton för alla användare istället för administratörskonton för att minska risken för oavsiktlig skadlig aktivitet.
+- **UAC (User Account Control)**: Se till att UAC är aktiverat för att varna dig när program försöker göra ändringar på din dator.
+
+## 7. Aktivera BitLocker för att kryptera din disk
+
+- **BitLocker**: Aktivera BitLocker-kryptering på din systemdisk för att skydda data mot obehörig åtkomst om datorn stjäls eller om den används på en annan enhet.
+- **Kryptera externa enheter**: Kryptera externa diskar och USB-enheter med BitLocker eller annan krypteringsteknik.
+
+## 8. Installera endast betrodda program
+
+- **Ladda ned program från officiella källor**: Installera endast program och appar från betrodda och officiella källor, till exempel Microsoft Store eller direkt från programvarutillverkarens webbplats.
+- **Kontrollera signaturer**: Använd digitala signaturer för att verifiera äktheten hos programvara och filer.
+
+## 9. Använd en webbläsartillägg som blockerar skadliga skript och annonser
+
+- **Webbläsartillägg**: Installera tillägg som blockerar skript (t.ex. NoScript) och annonser (t.ex. uBlock Origin) för att minska risken att oavsiktligt ladda ner skadlig programvara.
+
+## 10. Kontrollera och hantera installerade program
+
+- **Avinstallera oanvända program**: Ta bort gamla eller oanvända program från systemet, eftersom de kan innehålla sårbarheter.
+- **Programuppdateringar**: Håll alla installerade program uppdaterade, eftersom äldre versioner ofta innehåller säkerhetshål.
+
+## 11. Övervaka systemet med säkerhetsverktyg
+
+- **Windows Event Viewer**: Använd Event Viewer för att övervaka systemloggar och identifiera misstänkt aktivitet.
+- **Säkerhetslösningar från tredje part**: Använd säkerhetsövervakningslösningar som kan upptäcka intrång och anomalier i realtid.
+
+## 12. Använd ett VPN
+
+- **VPN (Virtual Private Network)**: Använd ett VPN när du är på offentliga Wi-Fi-nätverk för att skydda din internettrafik och förhindra att tredje parter spårar din aktivitet.
+
+## Slutsats
+
+Genom att följa dessa säkerhetsprinciper kan du skydda ditt Windows-system från många vanliga säkerhetshot. Det är också viktigt att hålla sig informerad om nya säkerhetshot och uppdatera sina skyddsåtgärder därefter.
+
 Serverhärdning ("Hardening") innebär att säkra en server för att minimera risken för angrepp. Det inkluderar att täppa till sårbarheter, begränsa åtkomst och implementera säkerhetsprinciper.
 
 ## Vanliga hotbilder
-
-- **Brute Force-attacker** – Angripare försöker gissa lösenord genom att testa många kombinationer.
-- **OS-sårbarheter** – Gammal programvara innehåller säkerhetshål som kan utnyttjas.
-- **DDOS-attacker** – Överbelastning av servern genom massiva mängder trafik.
-- **Malware och Ransomware** – Skadlig kod som infekterar servern.
-- **Obehörig åtkomst** – Svaga behörighetsinställningar kan ge obehöriga åtkomst.
-
-## Grundläggande skyddsåtgärder
-
-- **Uppdatera operativsystem och programvara**
-  ```powershell
-  Install-Module PSWindowsUpdate
-  Get-WindowsUpdate -Install
-  ```
-- **Använd starka lösenord och tvåfaktorsautentisering (2FA)**
-- **Begränsa administrativ åtkomst** (använd endast administratör när nödvändigt)
-- **Aktivera Windows-brandväggen och Defender**
-- **Övervaka loggar och trafik**
-
-## Avancerade skyddsåtgärder
-
-- **Konfigurera Windows-brandväggen för att blockera obehörig trafik**
-- **Använd Group Policy för att begränsa åtkomst och policyer**
-- **Installera verktyg som Microsoft Security Baseline**
-- **Logghantering och SIEM** – Övervaka loggar med exempelvis Splunk eller ELK Stack
-- **Säkerhetskopiering** – Automatiska backuper för att återställa vid angrepp
